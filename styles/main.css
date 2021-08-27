@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: sans-serif;
+}
+
+/* Landing */
+
+.login{
+    display: flex;
+    background-color: #d6d3a7;
+    height: 1.5rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.welcome{
+    font-weight: lighter;
+}
+
+.only{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.books{
+    font-family: 'Dancing Script', cursive;
+    color: #49b2f0;
+}
+
