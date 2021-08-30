@@ -67,11 +67,27 @@ i {
     background-color: #cecfc8;
 }
 
+.images{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  padding: 10px;
+
+}
+
+.image{
+    width: 200px;
+    height: 300px;
+}
 
 .book-container{
     display: flex;
     background-color: #bcbdb7;
     width: 100%;
+    display: flex;
+  justify-content: space-evenly;
 }
 
 .categories{
