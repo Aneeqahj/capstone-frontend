@@ -24,7 +24,9 @@ if (login_form != null) {
           console.log(data);
           localStorage.setItem("jwt_token", data["access_token"]);
 
-          window.location.href = "products.html";
+          window.location.href = "index.html";
+        } else {
+          alert("Username and Password does not match. Try registering first")
         }
       });
   });
