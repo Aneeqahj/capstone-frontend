@@ -7,16 +7,18 @@ function getCart() {
     container.innerHTML = "";
   
     cart.forEach((item) => {
-      console.log(item);
+      console.log(item[0]);
+      let book = item[0]
     //   let detail = item[0];
   
       container.innerHTML += `
         <div class="book-container">
         <div class="images"> <img class="image" src="./images/horror.jpg" alt="horror">
-        <h4 class="name">The Ice Princess</h4>
-        <h4 class="price">200</h4>
-        <h4 class="format">Paperback</h4>
-        <button class="button">Add to cart</button></div>
+        <h4 class="name">${book.name}</h4>
+        <h4 class="price">${book.price}</h4>
+        <h4 class="format">${book.format}</h4>
+        <button onclick="removeFromCart(${book.book_id})" class="icons"><i class="far fa-trash-alt">remove</i></button>
+
         </div>
       `;
     });
@@ -24,36 +26,37 @@ function getCart() {
   
   function removeFromCart(id) {
     let cart = JSON.parse(localStorage.getItem("cart"));
-    let updatedCart = cart.filter((item) => item[0][0] != id);
-  
-    localStorage.setItem("cart", JSON.stringify(updatedCart));
+    let update = cart.filter((item) => item[0].book_id != id);
+
+    localStorage.setItem("cart", JSON.stringify(update));
   
     getCart();
     getTotal();
   }
   
-//   getCart();
+  getCart();
   
   function getTotal() {
     let total = 0;
     let cart = JSON.parse(localStorage.getItem("cart"));
   
     cart.forEach(
-      (item) => (total += parseInt(item[0][2].substring(1, item[0][2].length)))
-    );
+      // (item) => console.log(item[0].price))
+      (item) => (total += parseInt(item[0].price)))
+    
   
     document.querySelector(".total").innerHTML = "Your total is: R" + total;
   }
 
 
-function addToCart(id) {
-    fetch("https://capstone-only-books.herokuapp.com/view/")
+function addToCart(book_id) {
+    fetch("https://capstone-only-books.herokuapp.com/viewing/")
       .then((response) => response.json())
       .then((data) => {
         console.log(data.data);
         let books = data.data;
   
-        let book = books.filter((book) => book[0] == id);
+        let book = books.filter((book) => book.book_id == book_id);
         let cart_items = JSON.parse(localStorage.getItem("cart"));
         console.log(book);
   
