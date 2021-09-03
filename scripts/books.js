@@ -1,6 +1,6 @@
 function getBooks() {
     fetch("https://capstone-only-books.herokuapp.com/viewing/")
-    .then((respose) => respose.json())
+    .then((response) => response.json())
     .then((data) => {
         console.log(data.data);
         let books = data.data;
@@ -24,6 +24,7 @@ function renderBook(book) {
         <h4>${book.price}</h4>
         <h4>${book.format}</h4>
         <button onclick="addToCart(${book.book_id})">Add to cart</button>
+        <button>View</button>
     </div>
     `
 } 
@@ -50,3 +51,5 @@ function myFunction() {
     }
   }
 }
+
+// Modal
