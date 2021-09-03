@@ -88,7 +88,7 @@ i {
     width: 100%;
     display: flex;
     justify-content: space-evenly;
-    margin: 5%;
+    /* margin: 5%; */
 }
 
 .categories{

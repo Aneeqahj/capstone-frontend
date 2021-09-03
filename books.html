@@ -12,17 +12,16 @@
 </head>
 <body>
     <div class="nav"><h2 class="nav-header"><span class="only">Only</span> <span class="books">Books</span></h2>
-        <button class="btn"><i class="fas fa-home"></i></button>
-        <button class="btn"><i class="fas fa-users"></i></button>
-        <button class="btn"><i class="fas fa-user-edit"></i></button>
-        <button class="btn"><i class="fas fa-book"></i></button>
-        <button class="btn"><i class="fas fa-shopping-cart"></i></button>
+        <button class="btn"><a href="./index.html">home</a></button>
+        <button class="btn"><a href="./user.html">user</a></button>
+        <button class="btn"><a href="./books.html">books</a></button>
+        <button class="btn"><a href="./viewcart.html">cart</a></button>
     </div>
     <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for a Genre..">
 
 <ul id="myUL">
-  <li><a href="#"></a></li>
-  <li><a href="#"></a></li>
+  <li><a href="#">thriller</a></li>
+  <li><a href="#">romance</a></li>
   <li><a href="#"></a></li>
   <li><a href="#"></a></li>
 </ul>
@@ -33,7 +32,23 @@
         <button class="categories horror"><span>Horror</span></button>
         <button class="categories non-fiction"><span>Non-fiction</span></button>
     </div>
-        <div class="book-container">
+        <div class="book-container"></div>
+        <div class="modal">
+            <div class="image">
+                <img src="./images/romance.jpg" alt="romance">
+            </div>
+            <div class="info">
+                <h5>Fifty Shades Of Grey</h5>
+                <div class="synopsis">
+                <p>When literature student Anastasia Steele goes to interview young entrepreneur Christian Grey, she encounters a man who is beautiful, brilliant, and intimidating. The unworldly, innocent Ana is startled to realize she wants this man and, despite his enigmatic reserve, finds she is desperate to get close to him. Unable to resist Ana’s quiet beauty, wit, and independent spirit, Grey admits he wants her, too—but on his own terms.Shocked yet thrilled by Grey’s singular erotic tastes, Ana hesitates. For all the trappings of success—his multinational businesses, his vast wealth, his loving family—Grey is a man tormented by demons and consumed by the need to control. When the couple embarks on a daring, passionately physical affair, Ana discovers Christian Grey’s secrets and explores her own dark desires.Erotic, amusing, and deeply moving, the Fifty Shades Trilogy is a tale that will obsess you, possess you, and stay with you forever.This book is intended for mature audiences.
+                </p>
+                </div>
+                <div class="review"><form>
+                    <input type="text" placeholder="Leave a review">
+                    <button class="submit">Submit</button>
+                </form></div>
+            </div>
+        </div>
                 <!-- <div class="images"> <img class="image" src="./images/horror.jpg" alt="horror">
                     <h4 class="name">The Ice Princess</h4>
                     <h4 class="price">200</h4>

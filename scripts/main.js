@@ -9,6 +9,8 @@ if (login_form != null) {
       password: document.querySelector(".password").value,
     };
 
+    console.log(user_details);
+
     fetch("https://capstone-only-books.herokuapp.com/auth", {
       method: "POST",
       headers: {
@@ -32,3 +34,12 @@ if (login_form != null) {
   });
 }
 
+
+function get_users() {
+  fetch("https://capstone-only-books.herokuapp.com/get-users/")
+  .then(response => response.json())
+  .then(data => console.log(data))
+}
+
+
+get_users();
