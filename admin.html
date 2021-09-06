@@ -4,41 +4,62 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Admin</title>
 </head>
 <body>
     <div class="nav"><h2 class="nav-header"><span class="only">Only</span> <span class="books">Books</span></h2>
         <button class="btn"><a href="./index.html">home</a></button>
         <button class="btn"><a href="./user.html">user</a></button>
-        <button class="btn"><a href="./books.html">books</a></button>
-        <button class="btn"><a href="./viewcart.html">cart</a></button>
+        <button class="btn"><a href="#">Add</a></button>
     </div>
     <div class="book-container">
-        <div class="images"> <img class="image" src="./images/horror.jpg" alt="horror">
+        <div class="images"> 
+            <img class="image" src="./images/horror.jpg" alt="horror">
             <h4>The Ice Princess</h4>
             <h4>200</h4>
             <h4>Paperback</h4>
+            <button class="icons">
+                <a href="#">Edit</a>
+              </button>
+              <button onclick="deleteBook()">Delete</button>
         </div>
         <div class="images"> <img class="image" src="./images/non-fic.jpg" alt="non-fic">
             <h4>Long Walk to Freedom</h4>
             <h4>139.00</h4>
             <h4>Paperback</h4>
+            <button class="icons">
+                <a href="#">Edit</a>
+              </button>
+              <button class="icons">Delete</button>
         </div>
         <div class="images"> <img class="image" src="./images/romance.jpg" alt="romance">
             <h4>Fifty Shades of Grey</h4> 
             <h4>269.00</h4>
             <h4>Paperback</h4>
+            <button class="icons">
+                <a href="#">Edit</a>
+              </button>
+              <button class="icons">Delete</button>
         </div>
         <div class="images"> <img class="image" src="./images/thriller2.jpg" alt="thriller">
             <h4>Girl Gone Missing</h4>
             <h4>145.00</h4>
             <h4>Paperback</h4>
+            <button class="icons">
+                <a href="#">Edit</a>
+              </button>
+              <button class="icons">Delete</button>
             </div>
         <div class="images"> <img class="image" src="./images/romance2.jpg" alt="romance2">
             <h4>The Perks of being a Wallflower</h4>
             <h4>220</h4>
             <h4>Paperback</h4>
+            <button class="icons">
+                <a href="#">Edit</a>
+              </button>
+              <button class="icons">Delete</button>
         </div>
     </div>
+    <script src="./scripts/admin.js"></script>
 </body>
 </html>
