@@ -11,10 +11,10 @@ if (login_form != null) {
 
     console.log(user_details);
 
-    fetch("https://capstone-only-books.herokuapp.com/auth", {
+    fetch("https://capstone-only-books.herokuapp.com/user-login/", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        "Content-type": "application/json",
       },
       body: JSON.stringify(user_details),
     })
@@ -22,9 +22,9 @@ if (login_form != null) {
       .then((data) => {
         console.log(data);
 
-        if (data["access_token"]) {
+        if (data["status_code"] == 201) {
           console.log(data);
-          localStorage.setItem("jwt_token", data["access_token"]);
+          // localStorage.setItem("jwt_token", data["access_token"]);
 
           window.location.href = "index.html";
         } else {
