@@ -25,10 +25,10 @@ if (reg_form != null) {
         .then((data) => {
           console.log(data);
           if(data.status_code == 201) {
-            let user = data.user;
+            let user = data.current_user;
             localStorage.setItem("user", JSON.stringify(user));
             alert("successful registration")
-            window.location.href = "login.html";
+            // window.location.href = "login.html";
           } else {
             alert("unsuccessful registration")
             

@@ -24,9 +24,10 @@ if (login_form != null) {
 
         if (data["status_code"] == 201) {
           console.log(data);
-          // localStorage.setItem("jwt_token", data["access_token"]);
+          let user = data.user_info;
+          localStorage.setItem("user", JSON.stringify(user));
 
-          window.location.href = "index.html";
+          // window.location.href = "index.html";
         } else {
           alert("Username and Password does not match. Try registering first")
         }
