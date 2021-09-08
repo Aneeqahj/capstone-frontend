@@ -21,21 +21,6 @@
   box-shadow: 1px 1px 0px #858383;
 }
 
-i {
-    color: #49b2f0;
-
-}
-
-.another-nav{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 100%;
-    margin: 5rem auto;
-    height: 3rem;
-    background-color: #cecfc8;
-}
 
 .images{
   display: flex;
@@ -54,7 +39,7 @@ i {
 
 .book-container{
     display: flex;
-    background-color: #bcbdb7;
+    /* background-color: #bcbdb7; */
     width: 100%;
     display: flex;
     justify-content: space-evenly;

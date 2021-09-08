@@ -27,7 +27,13 @@ if (login_form != null) {
           let user = data.user_info;
           localStorage.setItem("user", JSON.stringify(user));
 
-          // window.location.href = "index.html";
+
+          if(user[5] == "true" ) {
+            console.log("admin");
+            window.location.href = "./admin.html"
+          } else {
+            window.location.href = "index.html";
+          }
         } else {
           alert("Username and Password does not match. Try registering first")
         }
