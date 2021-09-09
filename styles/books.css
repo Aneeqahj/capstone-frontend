@@ -1,90 +1,129 @@
 *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.nav{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    background-color: #cecfc8;
+body{
+  font-family: sans-serif;
 }
 
-
-.btn{
-  background-color: #fff;
-  height: 1.5rem;
-  width: 1.5rem;
-  border: none;
-  border-radius: 50%;
-  box-shadow: 1px 1px 0px #858383;
-}
-
-
-.images{
+.login{
   display: flex;
+  background-color: #c3dbd8;
+  height: 1.5rem;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  width: 100%;
-  padding: 10px;
-
 }
 
-.image{
-    width: 200px;
-    height: 300px;
+.login:hover{
+  font-size: 1.5rem;
 }
 
-.book-container{
-    display: flex;
-    /* background-color: #bcbdb7; */
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    margin: 5% auto;
+.word{
+  color: #000;
+  font-weight: bolder;
 }
 
-.categories{
-  height: 2.5rem;
-  width: 5rem;
-  background-color: #fff;
-  border: none;
-  box-shadow: 1px 1px 0px #858383;
+.word:hover{
+  font-size: 1rem;
+  letter-spacing: 5px;
+}
+
+.welcome{
+  font-weight: lighter;
 }
 
 .only{
-    font-weight: 200;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-family: 'Montserrat', sans-serif;
+  font-weight: 200;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: 'Montserrat', sans-serif;
 
 }
 
 .books{
-    font-family: 'Dancing Script', cursive;
-    color: #49b2f0;
+  font-family: 'Dancing Script', cursive;
+  color: #49b2f0;
+}
+
+.nav{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #fff;
+}
+
+
+.btn{
+  border: none;
+  background-color: transparent;
+  color: #000;
+}
+
+
+.images{
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+width: 100%;
+padding: 10px;
+
+}
+
+.image{
+  width: 200px;
+  height: 300px;
+}
+
+.book-container{
+  display: flex;
+  /* background-color: #bcbdb7; */
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 5% auto;
+}
+
+.categories{
+height: 2.5rem;
+width: 5rem;
+background-color: #fff;
+border: none;
+box-shadow: 1px 1px 0px #858383;
+}
+
+.only{
+  font-weight: 200;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: 'Montserrat', sans-serif;
+
+}
+
+.books{
+  font-family: 'Dancing Script', cursive;
+  color: #49b2f0;
 }
 
 /* Search */
 #myInput {
-    background-image: url('/css/searchicon.png'); /* Add a search icon to input */
-    background-position: 10px 12px; /* Position the search icon */
-    background-repeat: no-repeat; /* Do not repeat the icon image */
-    width: 100%; /* Full-width */
-    font-size: 16px; /* Increase font-size */
-    padding: 12px 20px 12px 40px; /* Add some padding */
-    border: 1px solid #ddd; /* Add a grey border */
-    margin-bottom: 12px; /* Add some space below the input */
-  }
-  
-  #myUL {
-    /* Remove default list styling */
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  #myUL li a:hover:not(.header) {
-    background-color: #eee; /* Add a hover effect to all links, except for headers */
-  }
+  background-image: url('/css/searchicon.png'); /* Add a search icon to input */
+  background-position: 10px 12px; /* Position the search icon */
+  background-repeat: no-repeat; /* Do not repeat the icon image */
+  width: 100%; /* Full-width */
+  font-size: 16px; /* Increase font-size */
+  padding: 12px 20px 12px 40px; /* Add some padding */
+  border: 1px solid #ddd; /* Add a grey border */
+  margin-bottom: 12px; /* Add some space below the input */
+}
+
+#myUL {
+  /* Remove default list styling */
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#myUL li a:hover:not(.header) {
+  background-color: #eee; /* Add a hover effect to all links, except for headers */
+}

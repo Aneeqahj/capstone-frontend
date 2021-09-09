@@ -5,14 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Only Books cart</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/viewcart.css">
     <script src="https://kit.fontawesome.com/297e065f7a.js" crossorigin="anonymous"></script>
 
 </head>
 <body>
+    <div class="login">
+        <h4 class="welcome">Welcome to only books. <a href="./login.html">Login</a> or <a href="./register.html">Register</a> to purchase a book.</h4>
+    </div>
     <div class="nav"><h2 class="nav-header"><span class="only">Only</span> <span class="books">Books</span></h2>
-        <button class="btn"><a href="./index.html">home</a></button>
-        <button class="btn"><a href="./books.html">books</a></button>
-        <button class="btn"><a href="./viewcart.html">cart</a></button>
+        <button class="btn"><a href="./index.html" class="word">home</a></button>
+        <button class="btn"><a href="./books.html" class="word">books</a></button>
+        <button class="btn"><a href="./viewcart.html" class="word">cart</a></button>
     </div>
     <div class="book-container"></div>
     <button class="button" onclick="getTotal()">Total</button>

@@ -1,94 +1,55 @@
 // Delete function
 
 function deleteBook(index) {
-    console.log(index);
-    let delConfirm = confirm("Are you sure you want to delete this product?");
-    if (delConfirm) {
-      let token = localStorage.getItem("jwt_token");
-  
-      console.log(token);
-      fetch(
-        `https://capstone-only-books.herokuapp.com/delete_book/${index}/`,
-        {
-          headers: {
-            Authorization: `jwt ${token}`,
-          },
-        }
-      )
-        .then((response) => response.json())
-        .then((data) => console.log(data));
-         
-      getBooks();
-    }
-}
+  console.log(index);
+  let delConfirm = confirm("Are you sure you want to delete this product?");
+  if (delConfirm) {
+    let token = localStorage.getItem("jwt_token");
 
-
-
-function getBooks() {
-    fetch("https://capstone-only-books.herokuapp.com/viewing/")
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data.data);
-        let books = data.data;
-
-        let bookContainer = document.querySelector(".book-container")
-
-  
-        bookContainer.innerHTML = "";
-  
-        books.forEach(
-          (book) => (bookContainer.innerHTML += renderBook(book))
-        );
-      });
-  }
-  
-//  getBooks();
-
-  function editBooks(id) {
-    localStorage.setItem("to edit", JSON.stringify(id));
-  
-    window.location.href = "editbooks.html";
-  }
-
-  
-let addForm = document.querySelector(".add-form");
-let editForm = document.querySelector(".edit-form");
-let forms = document.querySelectorAll(".form");
-
-if (addForm != null) {
-  addForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-  
-    let newItem = {
-      name: document.querySelector("#name").value,
-      price: document.querySelector("#price").value,
-      format: document.querySelector("#format").value,
-      synopsis: document.querySelector("#synopsis").value,
-    };
-  
-    console.log(newItem);
-  
-    fetch("https://capstone-only-books.herokuapp.com/adding/", {
-      method: "POST",
-      body: JSON.stringify(newItem),
+    console.log(token);
+    fetch(`https://capstone-only-books.herokuapp.com/delete_book/${index}/`, {
       headers: {
-        "Content-type": "application/json; charset=UTF-8",
+        Authorization: `jwt ${token}`,
       },
     })
       .then((response) => response.json())
-      .then((data) => {
-        console.log(data)
-  
-        window.location.href = "books.html"
-      });
-  });
-  
+      .then((data) => console.log(data));
+
+    getBooks();
+  }
 }
+
+function getBooks() {
+  fetch("https://capstone-only-books.herokuapp.com/viewing/")
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data.data);
+      let books = data.data;
+
+      let bookContainer = document.querySelector(".book-container");
+
+      bookContainer.innerHTML = "";
+
+      books.forEach((book) => (bookContainer.innerHTML += renderBook(book)));
+    });
+}
+
+//  getBooks();
+
+function editBooks(id) {
+  localStorage.setItem("to edit", JSON.stringify(id));
+
+  window.location.href = "editbooks.html";
+}
+
+let editForm = document.querySelector(".edit-form");
+let forms = document.querySelectorAll(".form");
+
 // Edit function
 if (editForm != null) {
   editForm.addEventListener("submit", (e) => {
     e.preventDefault();
-  
+
     editBooks();
   });
   function editBooks() {
@@ -102,17 +63,15 @@ if (editForm != null) {
     };
     console.log(id);
 
-      console.log(item);
-      fetch(`https://capstone-only-books.herokuapp.com/update/${id}/`, {
-        method: "PUT",
-        headers: {
-          Authorization:
-            "jwt eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MjkyOTI1MjYsImlhdCI6MTYyOTIwNjEyNiwibmJmIjoxNjI5MjA2MTI2LCJpZGVudGl0eSI6OX0.-G3K7K_Q2X0QTdP43l9yx8VCCqi52ObfOpu_f4vSoTg",
-        },
-        body: JSON.stringify(item4
-          ),
-      })
-
+    console.log(item);
+    fetch(`https://capstone-only-books.herokuapp.com/update/${id}/`, {
+      method: "PUT",
+      headers: {
+        Authorization:
+          "jwt eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MjkyOTI1MjYsImlhdCI6MTYyOTIwNjEyNiwibmJmIjoxNjI5MjA2MTI2LCJpZGVudGl0eSI6OX0.-G3K7K_Q2X0QTdP43l9yx8VCCqi52ObfOpu_f4vSoTg",
+      },
+      body: JSON.stringify(item4),
+    })
       .then((response) => response.json())
       .then((data) => {
         console.log("Success:", data);
@@ -121,29 +80,26 @@ if (editForm != null) {
         console.error("Error:", error);
       });
   }
-
 }
-  function getBooks() {
-    fetch("https://capstone-only-books.herokuapp.com/viewing/")
+function getBooks() {
+  fetch("https://capstone-only-books.herokuapp.com/viewing/")
     .then((response) => response.json())
     .then((data) => {
-        console.log(data.data);
-        let books = data.data;
+      console.log(data.data);
+      let books = data.data;
 
-        let bookContainer = document.querySelector(".book-container")
+      let bookContainer = document.querySelector(".book-container");
 
-        bookContainer.innerHTML = "";
+      bookContainer.innerHTML = "";
 
-        books.forEach(
-            (book) => (bookContainer.innerHTML += renderBook(book))
-        );
+      books.forEach((book) => (bookContainer.innerHTML += renderBook(book)));
     });
 }
 
 getBooks();
 
 function renderBook(book) {
-    return `
+  return `
     <div class="images"> 
         <img class="image" src="./images/non-fic.jpg" alt="non-fic"><h4>${book.name}</h4>
         <h4>${book.price}</h4>
@@ -152,9 +108,8 @@ function renderBook(book) {
         <button onclick="deleteBook(${book.book_id})">Delete</button>
 
     </div>
-    `
-} 
-
+    `;
+}
 
 // Delete User
 function getUser() {

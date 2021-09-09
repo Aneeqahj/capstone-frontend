@@ -5,12 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Only Books Add</title>
+    <link rel="stylesheet" href="./styles/addbooks.css">
 </head>
 <body>
     <div class="form">
         <h4 class="header">Add a Book</h4>
-        <form class="add-form">
+        <form class="add-form" >
           <input class="inputs" id="name" type="text" placeholder="Name" />
+          <input class="inputs" id="file" type="file" />
           <input class="inputs" id="price" type="text" placeholder="Price" />
           <input
             class="inputs"
@@ -24,10 +26,12 @@
             type="text"
             placeholder="Synopsis"
           />
-          <button class="buttons">Proceed</button>
+          <button class="buttons" type="submit">Proceed</button>
         </form>
       </div>
+
+      <img src="" class="test_image">
     </div>
-    <script src="./scripts/admin.js"></script>
+    <script src="./scripts/addbooks.js"></script>
 </body>
 </html>
