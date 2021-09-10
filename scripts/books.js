@@ -1,44 +1,68 @@
 function getBooks() {
-    fetch("https://capstone-only-books.herokuapp.com/viewing/")
+  fetch("https://capstone-only-books.herokuapp.com/viewing/")
     .then((response) => response.json())
     .then((data) => {
-        console.log(data.data);
-        let books = data.data;
+      console.log(data.data);
+      let books = data.data;
 
-        let bookContainer = document.querySelector(".book-container")
+      let horrorContainer = document.querySelector(".horror .book-container");
+      console.log(horrorContainer);
+      let thrillerContainer = document.querySelector(
+        ".thriller .book-container"
+      );
+      let romanceContainer = document.querySelector(".romance .book-container");
+      let nonFictionContainer = document.querySelector(
+        ".non-fiction .book-container"
+      );
 
-        bookContainer.innerHTML = "";
+      let horror_books = books.filter((book) => book.genre == "Horror");
+      let thriller_books = books.filter((book) => book.genre == "Thriller");
+      let romance_books = books.filter((book) => book.genre == "Romance");
+      let nonFiction_books = books.filter(
+        (book) => book.genre == "Non-fiction"
+      );
 
-        books.forEach(
-            (book) => (bookContainer.innerHTML += renderBook(book))
-        );
+      console.log(romance_books);
+
+      horror_books.forEach(
+        (book) => (horrorContainer.innerHTML += renderBook(book))
+      );
+      thriller_books.forEach(
+        (book) => (thrillerContainer.innerHTML += renderBook(book))
+      );
+      romance_books.forEach(
+        (book) => (romanceContainer.innerHTML += renderBook(book))
+      );
+      nonFiction_books.forEach(
+        (book) => (nonFictionContainer.innerHTML += renderBook(book))
+      );
     });
 }
 
 getBooks();
 
 function renderBook(book) {
-    return `
-    <div class="images"> 
-        <img class="image" src="./images/non-fic.jpg" alt="non-fic"><h4>${book.name}</h4>
-        <h4>${book.price}</h4>
-        <h4>${book.format}</h4>
-        <button onclick="addToCart(${book.book_id})">Add to cart</button>
-        <button onclick="showModal(${book.book_id})">View</button>
-    </div>
-    `
-} 
+  return `
+      <div class="images"> 
+          <img class="image" src="${book.image_url}" alt="non-fic"><h4>${book.name}</h4>
+          <h4>${book.price}</h4>
+          <h4>${book.format}</h4>
+          <button onclick="addToCart(${book.book_id})">Add to cart</button>
+          <button onclick="showModal(${book.book_id})">View</button>
+      </div>
 
+    `;
+}
 
 // Search Function
 
 function myFunction() {
   // Declare variables
   var input, filter, ul, li, a, i, txtValue;
-  input = document.getElementById('myInput');
+  input = document.getElementById("myInput");
   filter = input.value.toUpperCase();
   ul = document.getElementById("myUL");
-  li = ul.getElementsByTagName('li');
+  li = ul.getElementsByTagName("li");
 
   // Loop through all list items, and hide those who don't match the search query
   for (i = 0; i < li.length; i++) {
@@ -53,41 +77,33 @@ function myFunction() {
 }
 
 // Modal
-let button = document.querySelector(".exit")
-button.addEventListener("click", toggleModal)
 
-
-function toggleModal(){
-  document.querySelector(".modal").classList.toggle("active")
+function toggleModal() {
+  document.querySelector(".modal").classList.toggle("active");
 }
 
 function showModal(book_id) {
   toggleModal();
 
   fetch("https://capstone-only-books.herokuapp.com/view-one/" + book_id + "/")
-  .then((response) => response.json())
-  .then((data) => {
+    .then((response) => response.json())
+    .then((data) => {
       console.log(data.data);
-      let books = data.data;
-
-      let modal = document.querySelector(".modal")
+      let book = data.data;
+      let modal = document.querySelector(".modal");
 
       modal.innerHTML = "";
-
-      books.forEach(
-          (book) => (modal.innerHTML += renderModal(book))
-      );
-  });
+      modal.innerHTML = renderModal(book);
+    });
 }
 
-
-function renderModal(book){
+function renderModal(book) {
   console.log(book);
   return `
   <div class="container">
   <button onclick="toggleModal()" class="exit">X</button>
   <div class="image-container">
-      <img src="./images/romance.jpg" alt="romance">
+      <img src="${book.image_url}" alt="romance">
   </div>
   <div class="info">
       <h5>${book.name}</h5>
@@ -104,5 +120,5 @@ function renderModal(book){
       </form>
   </div>
 </div>
-  `
+  `;
 }

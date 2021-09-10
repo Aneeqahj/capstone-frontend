@@ -27,26 +27,23 @@ if (login_form != null) {
           let user = data.user_info;
           localStorage.setItem("user", JSON.stringify(user));
 
-
-          if(user[5] == "true" ) {
+          if (user[5] == "true") {
             console.log("admin");
-            window.location.href = "./admin.html"
+            window.location.href = "./admin.html";
           } else {
             window.location.href = "index.html";
           }
         } else {
-          alert("Username and Password does not match. Try registering first")
+          alert("Username and Password does not match. Try registering first");
         }
       });
   });
 }
 
-
 function get_users() {
   fetch("https://capstone-only-books.herokuapp.com/get-users/")
-  .then(response => response.json())
-  .then(data => console.log(data))
+    .then((response) => response.json())
+    .then((data) => console.log(data));
 }
-
 
 get_users();

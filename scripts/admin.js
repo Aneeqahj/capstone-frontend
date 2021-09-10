@@ -8,14 +8,16 @@ function deleteBook(index) {
 
     console.log(token);
     fetch(`https://capstone-only-books.herokuapp.com/delete_book/${index}/`, {
-      headers: {
-        Authorization: `jwt ${token}`,
-      },
+      // headers: {
+      // Authorization: `jwt ${token}`,
+      // },
     })
       .then((response) => response.json())
-      .then((data) => console.log(data));
-
-    getBooks();
+      .then((data) => console.log(data))
+      .finally(() => {
+        window.location.reload();
+        getBooks();
+      });
   }
 }
 
@@ -53,24 +55,27 @@ if (editForm != null) {
     editBooks();
   });
   function editBooks() {
-    let id = document.querySelector("#book_id");
+    let id = document.querySelector("#book_id").value;
 
     let item = {
       name: document.querySelector("#name").value,
       price: document.querySelector("#price").value,
       format: document.querySelector("#format").value,
       synopsis: document.querySelector("#synopsis").value,
+      genre: document.querySelector("#genre").value,
+      image_url: document.querySelector("#image_url").value,
     };
+
     console.log(id);
 
     console.log(item);
-    fetch(`https://capstone-only-books.herokuapp.com/update/${id}/`, {
+    fetch(`http://127.0.0.1:5000/update/${id}/`, {
       method: "PUT",
       headers: {
-        Authorization:
-          "jwt eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MjkyOTI1MjYsImlhdCI6MTYyOTIwNjEyNiwibmJmIjoxNjI5MjA2MTI2LCJpZGVudGl0eSI6OX0.-G3K7K_Q2X0QTdP43l9yx8VCCqi52ObfOpu_f4vSoTg",
+        // Authorization:
+        // "jwt eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MjkyOTI1MjYsImlhdCI6MTYyOTIwNjEyNiwibmJmIjoxNjI5MjA2MTI2LCJpZGVudGl0eSI6OX0.-G3K7K_Q2X0QTdP43l9yx8VCCqi52ObfOpu_f4vSoTg",
       },
-      body: JSON.stringify(item4),
+      body: JSON.stringify(item),
     })
       .then((response) => response.json())
       .then((data) => {
@@ -101,7 +106,7 @@ getBooks();
 function renderBook(book) {
   return `
     <div class="images"> 
-        <img class="image" src="./images/non-fic.jpg" alt="non-fic"><h4>${book.name}</h4>
+        <img class="image" src="${book.image_url}" alt="non-fic"><h4>${book.name}</h4>
         <h4>${book.price}</h4>
         <h4>${book.format}</h4>
         <button onclick="addToCart(${book.book_id})">Add to cart</button>

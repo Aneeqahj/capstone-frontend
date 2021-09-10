@@ -5,72 +5,30 @@ if (addForm != null) {
   addForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    let file_input = document.querySelector("#file");
+    // CONVERT IMAGE FILE TO BASE24 STRING
+    let newItem = {
+      image_url: document.querySelector("#image_url").value,
+      name: document.querySelector("#name").value,
+      price: document.querySelector("#price").value,
+      format: document.querySelector("#format").value,
+      genre: document.querySelector("#genre").value,
+      synopsis: document.querySelector("#synopsis").value,
+    };
 
-    console.log(file_input.files[0]);
+    console.log(newItem);
 
-    const formData = new FormData();
-    formData.append("file", file_input.files[0]);
-
-    const reader = new FileReader();
-    let url = "";
-    reader.addEventListener(
-      "load",
-      function () {
-        // CONVERT IMAGE FILE TO BASE24 STRING
-        let image = document.querySelector(".test_image");
-        let newItem = {
-          image: 
-          name: document.querySelector("#name").value,
-          price: document.querySelector("#price").value,
-          format: document.querySelector("#format").value,
-          synopsis: document.querySelector("#synopsis").value,
-        };
-
-        console.log(newItem);
-
-        fetch("http://127.0.0.1:5000/adding/", {
-          method: "POST",
-          body: JSON.stringify(newItem),
-          headers: {
-            "Content-type": "application/json; charset=UTF-8",
-          },
-        })
-          .then((response) => response.json())
-          .then((data) => {
-            console.log(data);
-            //   window.location.href = "books.html"
-          });
+    fetch("https://capstone-only-books.herokuapp.com/adding/", {
+      method: "POST",
+      body: JSON.stringify(newItem),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
       },
-      false
-    );
-
-    if (file) {
-      reader.readAsDataURL(file_input.files[0]);
-    }
-
-    // let newItem = {
-    //   image: url,
-    //   name: document.querySelector("#name").value,
-    //   price: document.querySelector("#price").value,
-    //   format: document.querySelector("#format").value,
-    //   synopsis: document.querySelector("#synopsis").value,
-    // };
-
-    // console.log(newItem);
-
-    // fetch("http://127.0.0.1:5000/adding/", {
-    //   method: "POST",
-    //   body: JSON.stringify(newItem),
-    //   headers: {
-    //     "Content-type": "application/json; charset=UTF-8",
-    //   },
-    // })
-    //   .then((response) => response.json())
-    //   .then((data) => {
-    //     console.log(data);
-    //     //   window.location.href = "books.html"
-    //   });
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        window.location.href = "books.html";
+      });
   });
 }
 // }
