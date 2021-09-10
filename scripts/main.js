@@ -1,3 +1,5 @@
+//  For CRUD login with username: admin1, password: 12345
+
 let login_form = document.querySelector(".login-form");
 
 if (login_form != null) {

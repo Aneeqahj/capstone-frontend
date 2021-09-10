@@ -1,3 +1,5 @@
+//  For CRUD login with username: admin1, password: 12345
+
 // Delete function
 
 function deleteBook(index) {
@@ -109,8 +111,8 @@ function renderBook(book) {
         <img class="image" src="${book.image_url}" alt="non-fic"><h4>${book.name}</h4>
         <h4>${book.price}</h4>
         <h4>${book.format}</h4>
-        <button onclick="addToCart(${book.book_id})">Add to cart</button>
-        <button onclick="deleteBook(${book.book_id})">Delete</button>
+        <button class="noselect" onclick="editBooks(${book.book_id})">Edit</button>
+        <button class="noselect" onclick="deleteBook(${book.book_id})">Delete</button>
 
     </div>
     `;

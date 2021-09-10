@@ -48,7 +48,7 @@ body{
 
 .nav{
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
   background-color: #fff;
 }
@@ -58,6 +58,7 @@ body{
   border: none;
   background-color: transparent;
   color: #000;
+  margin: 10px;
 }
 
 
@@ -66,7 +67,6 @@ display: flex;
 justify-content: center;
 align-items: center;
 flex-direction: column;
-width: 100%;
 padding: 10px;
 
 }
@@ -77,12 +77,11 @@ padding: 10px;
 }
 
 .book-container{
-  display: flex;
-  /* background-color: #bcbdb7; */
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
-  margin: 5% auto;
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: flex-start;
+    margin: 5% auto;
 }
 
 .categories{
@@ -105,25 +104,160 @@ box-shadow: 1px 1px 0px #858383;
   color: #49b2f0;
 }
 
-/* Search */
-#myInput {
-  background-image: url('/css/searchicon.png'); /* Add a search icon to input */
-  background-position: 10px 12px; /* Position the search icon */
-  background-repeat: no-repeat; /* Do not repeat the icon image */
-  width: 100%; /* Full-width */
-  font-size: 16px; /* Increase font-size */
-  padding: 12px 20px 12px 40px; /* Add some padding */
-  border: 1px solid #ddd; /* Add a grey border */
-  margin-bottom: 12px; /* Add some space below the input */
-}
-
-#myUL {
-  /* Remove default list styling */
-  list-style-type: none;
-  padding: 0;
+.romance-book{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 5vw;
+  line-height: 8vw;
   margin: 0;
+  font-family: 'Red Hat Display', sans-serif;
+  font-weight: 900;
+  background: url(https://images.unsplash.com/photo-1457369804613-52c61a468e7d?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzR8fGJvb2tzfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60);
+  background-size: 40%;
+  background-position: 50% 50%;
+  -webkit-background-clip: text;
+  color: rgba(0,0,0,0.08);
+  animation: zoomout 10s ease 500ms forwards;
 }
 
-#myUL li a:hover:not(.header) {
-  background-color: #eee; /* Add a hover effect to all links, except for headers */
+.thriller-book{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 5vw;
+  line-height: 8vw;
+  margin: 0;
+  font-family: 'Red Hat Display', sans-serif;
+  font-weight: 900;
+  background: url(https://images.unsplash.com/photo-1457369804613-52c61a468e7d?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzR8fGJvb2tzfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60);
+  background-size: 40%;
+  background-position: 50% 50%;
+  -webkit-background-clip: text;
+  color: rgba(0,0,0,0.08);
+  animation: zoomout 10s ease 500ms forwards;
 }
+
+.non-fic-book{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 5vw;
+  line-height: 8vw;
+  margin: 0;
+  font-family: 'Red Hat Display', sans-serif;
+  font-weight: 900;
+  background: url(https://images.unsplash.com/photo-1457369804613-52c61a468e7d?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzR8fGJvb2tzfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60);
+  background-size: 40%;
+  background-position: 50% 50%;
+  -webkit-background-clip: text;
+  color: rgba(0,0,0,0.08);
+  animation: zoomout 10s ease 500ms forwards;
+}
+
+.horror-book{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 5vw;
+  line-height: 8vw;
+  margin: 0;
+  font-family: 'Red Hat Display', sans-serif;
+  font-weight: 900;
+  background: url(https://images.unsplash.com/photo-1457369804613-52c61a468e7d?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzR8fGJvb2tzfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60);
+  background-size: 40%;
+  background-position: 50% 50%;
+  -webkit-background-clip: text;
+  color: rgba(0,0,0,0.08);
+  animation: zoomout 10s ease 500ms forwards;
+}
+
+@keyframes zoomout {
+  from {
+    background-size: 40%;
+  }
+  to {
+    background-size: 10%;
+  }
+}
+
+
+section:nth-child(odd){
+  background-color: #fafafa;
+}
+
+button{
+  width: 7rem;
+  height: 2rem;
+  padding: 5px;
+  margin: 5% auto;
+}
+
+.noselect {
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+        -webkit-tap-highlight-color: transparent;
+}
+
+button.noselect {
+  width: 150px;
+  height: 60px;
+  cursor: pointer;
+  margin: 5px auto;
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+  background: transparent;
+  border: 2px solid #49b2f0;
+  box-shadow: 3px 3px 0 #49b2f0,
+      -3px -3px 0 #49b2f0,
+      -3px 3px 0 #49b2f0,
+      3px -3px 0 #49b2f0;
+  transition: 500ms ease-in-out;
+}
+
+button:hover {
+    box-shadow: 20px 5px 0 black, -20px -5px 0 black;
+}
+
+button:focus {
+    outline: none;
+}
+
+@media screen and (max-width: 600px) {
+  .book-container {
+    width: 100%;
+    padding: 10px;
+    flex-direction: column;
+  }
+
+  .nav{
+    width: 100%;
+  }
+
+  .login{
+    width: 100%;
+    height: 4rem;
+  }
+}
+
+@media screen and (max-width: 1204px) {
+  .book-container {
+    width: 100%;
+    padding: 10px;
+    flex-direction: column;
+  }
+
+  .nav{
+    width: 100%;
+  }
+
+  .login{
+    width: 100%;
+    height: 2rem;
+  }
+} 

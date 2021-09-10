@@ -1,3 +1,5 @@
+//  For CRUD login with username: admin1, password: 12345
+
 let addForm = document.querySelector(".add-form");
 
 // function addBook() {

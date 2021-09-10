@@ -1,3 +1,5 @@
+//  For CRUD login with username: admin1, password: 12345
+
 let reg_form = document.querySelector(".register-form");
 if (reg_form != null) {
   reg_form.addEventListener("submit", (e) => {

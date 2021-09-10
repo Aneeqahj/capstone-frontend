@@ -60,13 +60,53 @@ input{
    height: 2rem;
 }
 
-.buttons{
-    width: 10rem;
+.reg{
+    display: flex;
+    margin: 30px auto;
+}
+
+.reg:hover{
+    color: white;
+}
+
+button{
+    width: 5rem;
     height: 2rem;
-    margin: 0 auto;
-}
-
-
-.button{
+    padding: 5px;
     margin: 5px auto;
-}
+  }
+  
+  .noselect {
+    -webkit-touch-callout: none;
+      -webkit-user-select: none;
+       -khtml-user-select: none;
+         -moz-user-select: none;
+          -ms-user-select: none;
+              user-select: none;
+          -webkit-tap-highlight-color: transparent;
+  }
+  
+  button.noselect {
+      width: 150px;
+      height: 60px;
+      cursor: pointer;
+      margin: 0 auto;
+      font-size: 20px;
+      font-weight: bold;
+      color: black;
+      background: transparent;
+      border: 2px solid #49b2f0;
+      box-shadow: 3px 3px 0 #49b2f0,
+          -3px -3px 0 #49b2f0,
+          -3px 3px 0 #49b2f0,
+          3px -3px 0 #49b2f0;
+      transition: 500ms ease-in-out;
+  }
+  
+  button:hover {
+      box-shadow: 20px 5px 0 black, -20px -5px 0 black;
+  }
+  
+  button:focus {
+      outline: none;
+  }

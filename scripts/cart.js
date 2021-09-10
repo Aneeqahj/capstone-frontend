@@ -1,3 +1,5 @@
+//  For CRUD login with username: admin1, password: 12345
+
 function getCart() {
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
   let container = document.querySelector(".book-container");
@@ -17,7 +19,7 @@ function getCart() {
         <h4 class="name">${book.name}</h4>
         <h4 class="price">${book.price}</h4>
         <h4 class="format">${book.format}</h4>
-        <button onclick="removeFromCart(${book.book_id})" class="icons"><i class="far fa-trash-alt">remove</i></button>
+        <button onclick="removeFromCart(${book.book_id})" class="noselect">Remove</button>
 
         </div>
       `;
@@ -48,22 +50,4 @@ function getTotal() {
   document.querySelector(".total").innerHTML = "Your total is: R" + total;
 }
 
-function addToCart(book_id) {
-  fetch("https://capstone-only-books.herokuapp.com/viewing/")
-    .then((response) => response.json())
-    .then((data) => {
-      console.log(data.data);
-      let books = data.data;
 
-      let book = books.filter((book) => book.book_id == book_id);
-      let cart_items = JSON.parse(localStorage.getItem("cart"));
-      console.log(book);
-
-      if (cart_items == null) {
-        cart_items = [];
-      }
-
-      cart_items.push(book);
-      localStorage.setItem("cart", JSON.stringify(cart_items));
-    });
-}

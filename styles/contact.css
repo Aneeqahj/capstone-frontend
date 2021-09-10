@@ -29,9 +29,9 @@ body{
     border: 1px solid;
     display: flex;
     flex-direction: column;
-    height: 650px;
+    height: 550px;
     width: 400px;
-    margin: 10% auto;
+    margin: 2% auto;
     background: rgba( 215, 237, 237, 0.5 );
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     backdrop-filter: blur( 20px );
@@ -40,7 +40,7 @@ body{
     border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
-.register-form{
+.contact-form{
     display: flex;
     flex-direction: column;
     margin: 5%;
@@ -56,9 +56,11 @@ body{
 }
 
 .inputs{
-    margin: 10%;
-   height: 2rem;
+    margin: 5%;
+    height: 2rem;
 }
+
+
 
 button{
     width: 5rem;
@@ -69,35 +71,35 @@ button{
   
   .noselect {
     -webkit-touch-callout: none;
-        -webkit-user-select: none;
-        -khtml-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-                user-select: none;
-            -webkit-tap-highlight-color: transparent;
+      -webkit-user-select: none;
+       -khtml-user-select: none;
+         -moz-user-select: none;
+          -ms-user-select: none;
+              user-select: none;
+          -webkit-tap-highlight-color: transparent;
   }
   
   button.noselect {
-    width: 150px;
-    height: 60px;
-    cursor: pointer;
-    margin: 0 auto;
-    font-size: 20px;
-    font-weight: bold;
-    color: black;
-    background: transparent;
-    border: 2px solid #49b2f0;
-    box-shadow: 3px 3px 0 #49b2f0,
-        -3px -3px 0 #49b2f0,
-        -3px 3px 0 #49b2f0,
-        3px -3px 0 #49b2f0;
-    transition: 500ms ease-in-out;
+      width: 150px;
+      height: 60px;
+      cursor: pointer;
+      margin: 0 auto;
+      font-size: 20px;
+      font-weight: bold;
+      color: black;
+      background: transparent;
+      border: 2px solid #49b2f0;
+      box-shadow: 3px 3px 0 #49b2f0,
+          -3px -3px 0 #49b2f0,
+          -3px 3px 0 #49b2f0,
+          3px -3px 0 #49b2f0;
+      transition: 500ms ease-in-out;
   }
   
   button:hover {
-    box-shadow: 20px 5px 0 black, -20px -5px 0 black;
+      box-shadow: 20px 5px 0 black, -20px -5px 0 black;
   }
   
   button:focus {
-    outline: none;
+      outline: none;
   }

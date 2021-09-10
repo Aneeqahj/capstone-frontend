@@ -1,3 +1,5 @@
+//  For CRUD login with username: admin1, password: 12345
+
 function getBooks() {
   fetch("https://capstone-only-books.herokuapp.com/viewing/")
     .then((response) => response.json())
@@ -47,33 +49,11 @@ function renderBook(book) {
           <img class="image" src="${book.image_url}" alt="non-fic"><h4>${book.name}</h4>
           <h4>${book.price}</h4>
           <h4>${book.format}</h4>
-          <button onclick="addToCart(${book.book_id})">Add to cart</button>
-          <button onclick="showModal(${book.book_id})">View</button>
+          <button class="noselect" onclick="addToCart(${book.book_id})">Add to cart</button>
+          <button class="noselect" onclick="showModal(${book.book_id})">View</button>
       </div>
 
     `;
-}
-
-// Search Function
-
-function myFunction() {
-  // Declare variables
-  var input, filter, ul, li, a, i, txtValue;
-  input = document.getElementById("myInput");
-  filter = input.value.toUpperCase();
-  ul = document.getElementById("myUL");
-  li = ul.getElementsByTagName("li");
-
-  // Loop through all list items, and hide those who don't match the search query
-  for (i = 0; i < li.length; i++) {
-    a = li[i].getElementsByTagName("a")[0];
-    txtValue = a.textContent || a.innerText;
-    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-      li[i].style.display = "";
-    } else {
-      li[i].style.display = "none";
-    }
-  }
 }
 
 // Modal
@@ -101,24 +81,42 @@ function renderModal(book) {
   console.log(book);
   return `
   <div class="container">
-  <button onclick="toggleModal()" class="exit">X</button>
-  <div class="image-container">
-      <img src="${book.image_url}" alt="romance">
-  </div>
-  <div class="info">
-      <h5>${book.name}</h5>
-      <div class="synopsis">
-      <p>${book.synopsis}
-      </p>
+    <button onclick="toggleModal()" class="noselect">X</button>
+    <div class="image-container">
+        <img src="${book.image_url}" alt="romance">
+    </div>
+        <div class="info">
+            <h5>${book.name}</h5>
+            <div class="synopsis">
+            <p>${book.synopsis}
+            </p>
+        </div>
       <div class="user-div"><h4 class="user-review">Reviews</h4>
           <p>This is a review. Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem ipsam nulla mollitia aut soluta non eveniet enim ab dolor doloribus omnis, odio fugiat repellendus quibusdam obcaecati est vel earum quia!</p>
       </div>
-      </div>
-      <div class="review"><form>
-          <input type="text" placeholder="Leave a review">
-          <button class="submit">Submit</button></div>
-      </form>
-  </div>
+        
+    </div>
 </div>
   `;
+}
+
+// ADD TO CART
+function addToCart(book_id) {
+  fetch("https://capstone-only-books.herokuapp.com/viewing/")
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data.data);
+      let books = data.data;
+
+      let book = books.filter((book) => book.book_id == book_id);
+      let cart_items = JSON.parse(localStorage.getItem("cart"));
+      console.log(book);
+
+      if (cart_items == null) {
+        cart_items = [];
+      }
+
+      cart_items.push(book);
+      localStorage.setItem("cart", JSON.stringify(cart_items));
+    });
 }
